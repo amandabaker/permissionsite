@@ -1,4 +1,17 @@
 
+const registerServiceWorker = async () => {
+  try {
+    await navigator.serviceWorker.register('sw.js');
+    console.log('Service worker registered');
+  } catch (e) {
+    console.log(`Registration failed: ${e}`);
+  }
+}
+
+if (navigator.serviceWorker) {
+  registerServiceWorker();
+}
+
 //  - Information about clearing settings in Chrome (can't link to chrome:// URLs)
 //  - Indicate if permissions are already granted, if the relevant API allows it.
 
@@ -577,6 +590,15 @@ window.addEventListener("load", function() {
     document.getElementById(type).addEventListener('click',
       register[type]
     );
+  }
+
+  for (const type in register) {
+    try {
+      register[type]();
+    } catch (e) {
+      // don't care. log for funzies.
+      console.log(e);
+    }
   }
 
 });
