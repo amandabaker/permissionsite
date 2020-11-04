@@ -1,0 +1,12 @@
+{
+  "name": "So many icons",
+  "display": "standalone",
+  "start_url": "./index.html",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "app-icon.png",
+      "sizes": "288x288"
+    }
+  ]
+}
